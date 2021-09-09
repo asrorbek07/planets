@@ -43,16 +43,342 @@ html{
 }
 
 body{
+  font-size: 14px;
+  font-weight: 400px;
+  line-height: 25px;
   font-family: var(--Spartan);
   margin: 0;
   padding: 0;
   background-image: url(../img/bg-img.svg);
   background-position: center center;
-  background-size: 100%, 100%;
-  background-repeat: no-repeat;
+  background-size:cover;
+  background-repeat: repeat-y;
+  color: #ffffff;
+}
+.site-container{
+  margin-left: auto;
+  margin-right: auto;
+}
+.site-header {
+  border-bottom: 1px solid #ffffff33;
+}
+.site-header__container {
+ max-width: 1360px;
+ margin-left: auto;
+ margin-right: auto;
+ padding-left: 20px;
+ padding-right: 20px;
+ padding-top: 27px;
+ padding-bottom: 27px;
+ display: flex;
+ align-items: center;
+
+}
+.site-header__wrap{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: auto;
+}
+.sitelogo {
+  display: block;
+}
+.sitelogo__img {
+  display: block;
+}
+.site-header__toggle-btn {
+  /* display: none; */
+}
+.sitenav {
+}
+.sitenav__list {
   width: 100%;
-  height: 100%;
-  font-size: 14px;
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.sitenav__item:not(:last-child) {
+  margin-right: 33px;
+}
+.sitenav__span {
+  font-weight: bold;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.site-main {
+  padding-top: 25px;
+  padding-bottom: 56px;
+}
+.site-main__container {
+ max-width: 1150px;
+ padding-left: 20px;
+ padding-right: 20px;
+ margin-left: auto;
+ margin-right: auto;
+
+}
+.planet {
+  display: flex;
+  align-items: center;
+}
+.planet__img{
+  height: 700px;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 30px;
+}
+.planet__img img{
+  max-width: 100%;
+  height: auto;
+  display: block;
+
+}
+.planet__about{
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+}
+.planet__output {
+ margin-bottom: 40px;
+ display: flex;
+ flex-direction: column;
+}
+.planet__title {
+  font-size: 80px;
+  line-height: 104px;
+  text-transform: uppercase;
+  margin: 0;
+  margin-bottom: 23px;
+  font-family: var(--Antonio);
+}
+.planet__text {
+  margin: 0;
+  margin-bottom: 24px;
+}
+.planet__source {
+ opacity: 0.5;
+ display: flex;
+ align-items: center;
+}
+.planet__source::after{
+  content: "";
+  width: 12px;
+  height: 12px;
+  background-image: url(../img/wikipedia.png);
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: 12px 12px;
+  margin-left: 8px;
+}
+.planet__source-link {
+  color: inherit;
+}
+.planet__about-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.planet__about-item {
+  width: 100%;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-left: 28px;
+  display: flex;
+  align-items: center;
+  border: 1px solid #FFFFFF33;
+}
+.planet__about-item:not(:last-child){
+  margin-bottom: 16px;
+}
+.planet__about-item:last-of-type::before{
+  content: "03";
+}
+.planet__about-item:nth-of-type(2)::before{
+  content: "02";
+}
+.planet__about-item::before{
+  content: "01";
+  width: 18px;
+  height: 25px;
+  margin-right: 28px;
+}
+.planet__about-span {
+  display: block;
+  font-weight: bold;
+  font-size: 12px;
   line-height: 25px;
-  color: #fff;
+  letter-spacing: 2.57143px;
+  text-transform: uppercase;
+}
+.planet-info {
+  padding-top: 30px;
+}
+.planet-info__list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+}
+.planet-info__item{
+  flex-grow: 1;
+  width: 260px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  border: 1px solid #FFFFFF33;
+  margin-bottom: 20px;
+}
+.planet-info__item:not(:last-of-type){
+  margin-right: 20px;
+}
+.planet-info__title {
+  font-weight: bold;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  opacity: 0.5;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 4px;
+  font-family: var(--Antonio);
+}
+.planet-info__text {
+  margin: 0;
+  padding: 0;
+  font-size: 40px;
+  line-height: 52px;
+  letter-spacing: -1.5px;
+  text-transform: uppercase;
+}
+
+
+@media only screen and (max-width:768px) {
+  .site-header__container{
+    flex-direction: column;
+  }
+  .site-header__wrap{
+    margin-bottom: 40px;
+    margin-right: 0;
+  }
+  .sitelogo{
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .site-main{
+    padding-bottom: 36px;
+  }
+  .sitenav {
+    width: 100%;
+
+  }
+  .sitenav__list {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .planet{
+    flex-direction: column;
+  }
+  .planet__img{
+    height: 430px;
+    margin-bottom: 10px;
+    width: 100%;
+    margin-right: 0;
+  }
+  .planet__img img{
+    object-fit: contain;
+    max-height: 100%;
+  }
+  .planet__about{
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+  }
+  .planet__output {
+    margin-bottom: 0;
+    width: 340px;
+    margin-right: auto;
+   }
+   .planet__title{
+    font-weight: normal;
+    font-size: 48px;
+    line-height: 62px;
+   }
+   .planet__text{
+    font-size: 11px;
+    line-height: 22px;
+    margin-bottom: 32px;
+   }
+   .planet__about-list{
+     width: 280px;
+     margin-left: 30px;
+   }
+   .planet__about-span{
+     font-size: 9px;
+     letter-spacing: 1.92857px;
+   }
+   .planet__about-item{
+     padding-top: 8px;
+     padding-bottom: 8px;
+   }
+   .planet-info__item{
+     width: 165px;
+   }
+   .planet-info__title{
+    font-size: 8px;
+    line-height: 16px;
+    letter-spacing: 0.727273px;
+    margin-bottom: 6px;
+   }
+   .planet-info__text{
+    font-size: 24px;
+    line-height: 31px;
+    letter-spacing: -0.9px;
+   }
+}
+
+@media only screen and (max-width:576px){
+  .planet__img{
+    height: 256px;
+  }
+  .planet__about{
+    flex-direction: column;
+  }
+  .planet__output{
+    width: 100%;
+    align-items: center;
+  }
+  .planet__title{
+    font-size: 40px;
+    line-height: 52px;
+  }
+  .planet__text{
+    text-align: center;
+  }
+  .planet-info__list{
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-start;
+  }
+  .planet-info__item{
+    width: 100%;
+    display: flex;
+    padding: 9px 24px 13px 24px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .planet-info__text{
+    font-size: 20px;
+    line-height: 26px;
+    letter-spacing: -0.75px;
+  }
 }
