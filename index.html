@@ -21,13 +21,9 @@
           </div>
           <nav class="sitenav">
             <ul class="sitenav__list">
-              <li class="sitenav__item"><span class="sitenav__span">Mercuriy</span></li>
-              <li class="sitenav__item"><span class="sitenav__span">Venus</span></li>
-              <li class="sitenav__item"><span class="sitenav__span">Earth</span></li>
-              <li class="sitenav__item"><span class="sitenav__span">Mars</span></li>
-              <li class="sitenav__item"><span class="sitenav__span">Jupiter</span></li>
-              <li class="sitenav__item"><span class="sitenav__span">Saturn</span></li>
-              <li class="sitenav__item"><span class="sitenav__span">Uranus</span></li>
+              <li class="sitenav__item"   v-for="(planetName, index) in planetNames">
+                <a class="sitenav__link" href="#" @click="choosePlanet(index)"> {{ planetName }} </a>
+              </li>
             </ul>
           </nav>
         </div>
@@ -35,41 +31,30 @@
       <main class="site-main">
         <div class="site-main__container">
           <section class="planet">
-            <div class="planet__img"><img src="img/mars-geo.png" alt="planet img" width="336" height="448"></div>
+            <div class="planet__img"><img :src="planets[selectedPlanetId].features[selectedPlanetFeatureId].img" alt="planet img" width="336" height="448"></div>
             <div class="planet__about">
               <div class="planet__output">
-                <h1 class="planet__title">Mars</h1>
-                <p class="planet__text">
-                  Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System, being larger than only Mercury. In English, Mars carries the name of the Roman god of war and is often referred to as the "Red Planet".
-                </p>
+                <h1 class="planet__title"> {{ planets[selectedPlanetId].name }} </h1>
+                <p class="planet__text"> {{ planets[selectedPlanetId].features[selectedPlanetFeatureId].text}} </p>
                 <p class="planet__source">
-                  Source : <a href="https://www.wikipedia.org" class="planet__source-link">Wikipedia</a>
+                  Source : <a :href="planets[selectedPlanetId].wikipediaLink"  class="planet__source-link">Wikipedia</a>
                 </p>
               </div>
               <ol class="planet__about-list">
-                <li class="planet__about-item"><span class="planet__about-span">Overview</span></li>
-                <li class="planet__about-item"><span class="planet__about-span">Internal Structure</span></li>
-                <li class="planet__about-item"><span class="planet__about-span">Surface Geology</span></li>
+                <li class="planet__about-item" :style="[selectedPlanetFeatureId == index ? {backgroundColor: planets[selectedPlanetId].backgroundColor}: {backgroundColor: 'transparent'}]"  v-for="(feature, index) in planets[selectedPlanetId].features"  @click="chooseFeature(index)">
+                  <span class="planet__about-span"> {{ feature.name }} </span>
+                </li>
+
               </ol>
             </div>
           </section>
           <section class="planet-info">
             <ul class="planet-info__list">
-              <li class="planet-info__item">
-                <h2 class="planet-info__title">Rotation time</h2>
-                <p class="planet-info__text">1.03 days</p>
+              <li class="planet-info__item" v-for="about in planets[selectedPlanetId].abouts">
+                <h2 class="planet-info__title"> {{ about.name }} </h2>
+                <p class="planet-info__text"> {{ about.data }} </p>
               </li>
-              <li class="planet-info__item">
-                <h2 class="planet-info__title">Revolution time</h2>
-                <p class="planet-info__text">1.88 years</p>
-              </li>
-              <li class="planet-info__item">
-                <h2 class="planet-info__title">Radius</h2>
-                <p class="planet-info__text">3,389.5 km</p>
-              </li>
-              <li class="planet-info__item">
-                <h2 class="planet-info__title">Average temp</h2>
-                <p class="planet-info__text">−28°c</p>
+
               </li>
             </ul>
           </section>
