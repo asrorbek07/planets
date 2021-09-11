@@ -330,10 +330,16 @@ const Myapp = new Vue({
   methods:{
     choosePlanet(index){
       this.selectedPlanetId=index;
-      console.log(this.selectedPlanetId);
+      document.querySelector('.planet__about-list').classList.remove('display-non')
+      document.querySelector('.sitenav').classList.remove('display-toggle')
+
     },
     chooseFeature(index){
       this.selectedPlanetFeatureId=index;
-    }
+    },
+    showNav() {
+      document.querySelector('.planet__about-list').classList.toggle('display-non')
+      document.querySelector('.sitenav').classList.toggle('display-toggle')
+    },
   }
 })
